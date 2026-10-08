@@ -12,7 +12,7 @@ wn.bgcolor("purple")
 wn.bgpic('space-bg.gif')
 wn.tracer(3)
             
-# Module3: Applying a boarder to the Game World
+# Module3: Applying a border to the Game World
 mypen = turtle.Turtle()
 mypen.color("white")
 mypen.penup()
@@ -56,7 +56,7 @@ for count in range(maxFoods):
     foods[count].shapesize(.5)
     foods[count].penup()
     foods[count].speed(0)
-foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
+    foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
 
 # Module8: A Helping Hand
 speed = 1
@@ -158,10 +158,14 @@ if (int(score) > int(comp_score)):
     mypen.setposition(0, 0)
     mypen.color("yellow")
     mypen.write("Game Over: You WIN", False, align="center", font=("Arial", 28, "normal"))
+elif (int(score) == int(comp_score)):
+    mypen.setposition(0, 0)
+    mypen.color("yellow")
+    mypen.write("Game Over: It's a DRAW", False, align="center", font=("Arial", 28, "normal"))
 else:
     mypen.setposition(0, 0)
     mypen.color("yellow")
-    mypen.write("Game Over: You LOOSE", False, align="center", font=("Arial", 28, "normal"))
+    mypen.write("Game Over: You LOSE", False, align="center", font=("Arial", 28, "normal"))
 
 delay = input("Press Enter to finish.")
             

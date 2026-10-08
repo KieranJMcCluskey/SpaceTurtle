@@ -12,7 +12,7 @@ wn.bgcolor("purple")
 wn.bgpic('space-bg.gif')
 wn.tracer(3)
             
-# Module3: Applying a boarder to the Game World
+# Module3: Applying a border to the Game World
 mypen = turtle.Turtle()
 mypen.color("white")
 mypen.penup()

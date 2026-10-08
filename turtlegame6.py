@@ -12,7 +12,7 @@ wn.bgcolor("purple")
 wn.bgpic('space-bg.gif')
 wn.tracer(3)
             
-# Module3: Applying a boarder to the Game World
+# Module3: Applying a border to the Game World
 mypen = turtle.Turtle()
 mypen.color("white")
 mypen.penup()
@@ -56,4 +56,4 @@ for count in range(maxFoods):
     foods[count].shapesize(.5)
     foods[count].penup()
     foods[count].speed(0)
-foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
+    foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
