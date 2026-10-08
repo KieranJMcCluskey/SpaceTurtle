@@ -62,6 +62,13 @@ foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
 speed = 1
 timeout= time.time() + 10*6
 
+def play_sound(name):
+    if os.name == 'nt':
+        import winsound
+        winsound.PlaySound(name + '.wav', winsound.SND_FILENAME | winsound.SND_ASYNC)
+    else:
+        os.system('afplay ' + name + '.mp3&')
+
 def turnleft():
     player.left(30)
 def turnright():

@@ -62,6 +62,13 @@ foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
 speed = 1
 timeout= time.time() + 10*6
 
+def play_sound(name):
+    if os.name == 'nt':
+        import winsound
+        winsound.PlaySound(name + '.wav', winsound.SND_FILENAME | winsound.SND_ASYNC)
+    else:
+        os.system('afplay ' + name + '.mp3&')
+
 def turnleft():
     player.left(30)
 def turnright():
@@ -94,19 +101,19 @@ while True:
  # Module10: Bounce Bounce Bounce
     if player.xcor() > 290 or player.xcor() <-290:
         player.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
     
     if player.ycor() > 290 or player.ycor() <-290:
         player.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
     
     if comp.xcor() > 290 or comp.xcor() <-290:
         comp.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
    
     if comp.ycor() > 290 or comp.ycor() <-290:
         comp.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
 
     # Module11: Food Flight
     for count in range(maxFoods):
@@ -114,17 +121,17 @@ while True:
             
         if foods[count].xcor()> 290 or foods[count].xcor() < -290:
             foods[count].right(180)
-            os.system('afplay bounce. mp3&')
+            play_sound('bounce')
 
         if foods[count].ycor() > 290 or foods[count].ycor() <-290:
             foods[count].right(180)
-            os.system('afplay bounce.mp3&')
+            play_sound('bounce')
 
         # Module12: Crash, Bang Omph for Chomp
         if isCollision(player, foods[count]):
             foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
             foods[count].right(random.randint(0,360))
-            os.system('afplay chomp.mp3&')
+            play_sound('chomp')
             score+=1
             mypen.undo()
             mypen.penup()
@@ -137,7 +144,7 @@ while True:
         if isCollision(comp, foods[count]):
             foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
             foods[count].right(random.randint(0,360))
-            os.system('afplay chomp.mp3&')
+            play_sound('chomp')
             comp_score+=1
             mypen2.undo()
             mypen2.penup()

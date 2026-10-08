@@ -62,6 +62,13 @@ foods[count].setposition(random.randint(-290, 290), random.randint(-290, 290))
 speed = 1
 timeout= time.time() + 10*6
 
+def play_sound(name):
+    if os.name == 'nt':
+        import winsound
+        winsound.PlaySound(name + '.wav', winsound.SND_FILENAME | winsound.SND_ASYNC)
+    else:
+        os.system('afplay ' + name + '.mp3&')
+
 def turnleft():
     player.left(30)
 def turnright():
@@ -94,17 +101,17 @@ while True:
  # Module10: Bounce Bounce Bounce
     if player.xcor() > 290 or player.xcor() <-290:
         player.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
     
     if player.ycor() > 290 or player.ycor() <-290:
         player.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
     
     if comp.xcor() > 290 or comp.xcor() <-290:
         comp.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
    
     if comp.ycor() > 290 or comp.ycor() <-290:
         comp.right(180)
-        os.system('afplay bounce.mp3&')
+        play_sound('bounce')
         
